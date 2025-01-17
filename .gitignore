@@ -38,3 +38,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# unused
+/backup
+/app/idea
+/app/fonts
+/app/dm-note
+plan.txt
+/app/components/ConditionModal.tsx
+/app/components/PlayerHeading.tsx
+/app/components/PlayerInfo.tsx
+/app/components/usePlayerInfo.tsx
