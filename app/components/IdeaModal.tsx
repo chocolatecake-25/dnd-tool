@@ -32,6 +32,7 @@ export default function IdeaModal({
     "Location - Village",
     "Location - Special Areas",
     "Event - Historical Event",
+    "Event - Recent Event",
     "Event - Current Event",
     "Event - Future Event/Plan",
     "Item - Magic Items",
