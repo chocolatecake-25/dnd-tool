@@ -549,7 +549,7 @@ export default function Note() {
           id="search-bar"
           className="px-1 text-black"
           value={menuFilter}
-          placeholder="filter"
+          placeholder="Filter"
           onChange={(e) => {
             setMenuFilter(e.target.value);
           }}
