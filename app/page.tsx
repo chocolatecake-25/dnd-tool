@@ -300,16 +300,18 @@ export default function Note() {
     return false;
   }
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event#browser_compatibility
-  window.onbeforeunload = (event) => {
-    const e = event || window.event;
-    // Cancel the event
-    e.preventDefault();
-    if (e) {
-      e.returnValue = ""; // Legacy method for cross browser support
-    }
-    return ""; // Legacy method for cross browser support
-  };
+  useEffect(() => {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event#browser_compatibility
+    window.onbeforeunload = (event) => {
+      const e = event || window.event;
+      // Cancel the event
+      e.preventDefault();
+      if (e) {
+        e.returnValue = ""; // Legacy method for cross browser support
+      }
+      return ""; // Legacy method for cross browser support
+    };
+  }, []);
 
   return (
     <div
