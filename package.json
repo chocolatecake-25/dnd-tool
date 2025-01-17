@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d out -t true"
+    "deploy": "gh-pages -d out --nojekyll --cname chocolatecake-25.github.io/dnd-tool/"
   },
   "dependencies": {
     "next": "15.0.3",
