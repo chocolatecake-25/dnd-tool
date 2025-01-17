@@ -71,8 +71,11 @@ export default function Note() {
       if (notes[i].title === noteDisplayed.title) {
         notes.splice(i, 1);
         setNotes([...notes, noteDisplayed]);
-        navTo == "clear" ? clearNote() : setDisplayedNote(navTo);
-        // return;
+        if (navTo == "clear") {
+          clearNote();
+          return;
+        }
+        setDisplayedNote(navTo);
       }
     }
   }

@@ -14,14 +14,8 @@ export default function IdeaModal({
   setModalToggle,
   mainTagsList,
 }: IdeaModalType) {
-  const [basicPool, setBasicPool] = useState<string[]>([
-    "NPC",
-    "Location",
-    "Event",
-    "Item",
-    "Organisation",
-  ]);
-  const [complexPool, setComplexPool] = useState<string[]>([
+  const basicPool = ["NPC", "Location", "Event", "Item", "Organisation"];
+  const complexPool = [
     "NPC - Villain",
     "NPC - Small Folks",
     "NPC - Royalty",
@@ -50,7 +44,7 @@ export default function IdeaModal({
     "Organisation - Area",
     "Organisation - Town",
     "Organisation - Village",
-  ]);
+  ];
 
   function generateIdea(pool: string[]) {
     const randomElement = pool[Math.floor(Math.random() * pool.length)];

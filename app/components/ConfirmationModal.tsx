@@ -9,8 +9,8 @@ type ConfirmationModalType = {
   modalToggle: boolean;
   setModalToggle: Dispatch<SetStateAction<boolean>>;
   message: string;
-  functionToRun: Function;
-  otherFunctionToRunIfNo: Function;
+  functionToRun: () => void;
+  otherFunctionToRunIfNo: () => void;
 };
 export default function ConfirmationModal({
   modalToggle,
