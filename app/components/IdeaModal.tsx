@@ -1,10 +1,8 @@
 "use client";
 import Modal from "./Modal";
 import { Dispatch, SetStateAction, useState } from "react";
-import { ToastContainer, toast, Bounce } from "react-toastify";
+import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaCheck } from "react-icons/fa6";
-import { IoCloseSharp } from "react-icons/io5";
 
 type IdeaModalType = {
   modalToggle: boolean;
@@ -106,7 +104,9 @@ export default function IdeaModal({
         <div
           className="tag-button cta idea-btn"
           onClick={() => {
-            checkIfEmpty(mainTagsList) ? null : generateIdea(mainTagsList);
+            if (!checkIfEmpty(mainTagsList)) {
+              generateIdea(mainTagsList);
+            }
           }}
           style={{
             cursor: checkIfEmpty(mainTagsList) ? "not-allowed" : "pointer",
@@ -118,25 +118,6 @@ export default function IdeaModal({
           Tags
         </div>
       </div>
-      {/* a btn to add the chosen tag to the displayedNote, so will need a state to save the chosen idea */}
-      {/* <div className="cta-group flex-ca gap-5 mt-2 mb-1">
-        <FaCheck
-          className="cta confirm-button"
-          size={"1.5rem"}
-          onClick={() => {
-            functionToRun();
-            setModalToggle(false);
-          }}
-        />
-        <IoCloseSharp
-          className="cta cancel-button"
-          size={"1.5rem"}
-          onClick={() => {
-            otherFunctionToRunIfNo();
-            setModalToggle(false);
-          }}
-        />
-      </div> */}
     </Modal>
   );
 }

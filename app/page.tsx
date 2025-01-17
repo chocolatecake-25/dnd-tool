@@ -1,19 +1,19 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { LuMenu, LuMinus, LuPlus } from "react-icons/lu";
+import { useEffect, useState } from "react";
+import { LuMenu, LuPlus } from "react-icons/lu";
 import { IoClose } from "react-icons/io5";
 import TagModal from "./components/TagModal";
 import { ChangeEvent } from "react";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BiImport, BiExport, BiFilterAlt, BiSave } from "react-icons/bi";
-import { FaChevronLeft, FaChevronRight, FaTags } from "react-icons/fa";
+import { FaTags } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { FaRegNoteSticky } from "react-icons/fa6";
 import ConfirmationModal from "./components/ConfirmationModal";
 import { AiOutlineClear } from "react-icons/ai";
 import { LiaDiceSolid } from "react-icons/lia";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import IdeaModal from "./components/IdeaModal";
 
 export default function Note() {
@@ -56,16 +56,14 @@ export default function Note() {
   const [ideaModalToggle, setIdeaModalToggle] = useState(false);
   const [navTo, setNavTo] = useState("clear");
 
-  function setDateTime() {
+  useEffect(() => {
+    // function setDateTime() {
     const time = new Date();
     setNoteDisplayed({
       ...noteDisplayed,
       datetime: String(time),
     });
-  }
-
-  useEffect(() => {
-    setDateTime();
+    // }
   }, [noteDisplayed.title, noteDisplayed.tag, noteDisplayed.content]);
 
   function saveNote() {
@@ -74,7 +72,7 @@ export default function Note() {
         notes.splice(i, 1);
         setNotes([...notes, noteDisplayed]);
         navTo == "clear" ? clearNote() : setDisplayedNote(navTo);
-        return;
+        // return;
       }
     }
   }
@@ -107,14 +105,16 @@ export default function Note() {
         content: string;
       }[];
       const notesList = dataArrays[1].split("notes-separator");
-      let notesListProcessed: noteListType = [];
+      const notesListProcessed: noteListType = [];
+      // ^ Change const to let if there's issue here
       for (let i = 0; i < notesList.length; i++) {
         if (notesList[i] != "") {
           notesListProcessed[i] = JSON.parse(notesList[i]);
         }
       }
       setNotes(notesListProcessed);
-      let mTagsList = [];
+      const mTagsList = [];
+      // ^ Change const to let if there's issue here
       for (let i = 0; i < notesListProcessed.length; i++) {
         for (let j = 0; j < notesListProcessed[i].tag.length; j++) {
           if (mainTagsList.length) {
@@ -232,7 +232,8 @@ export default function Note() {
     setNoteDisplayed(noteTemplate);
   }
 
-  function setResult() {
+  useEffect(() => {
+    // function setResult() {
     if (menuFilter == "") {
       setFilterResult(notes);
       return;
@@ -246,7 +247,8 @@ export default function Note() {
       return;
     }
     if (filterType == "Tags") {
-      let result = [];
+      const result = [];
+      // ^ Change const to let if there's issue here
       for (let i = 0; i < notes.length; i++) {
         for (let j = 0; j < notes[i].tag.length; j++) {
           if (notes[i].tag[j].toLowerCase() === menuFilter.toLowerCase()) {
@@ -266,10 +268,7 @@ export default function Note() {
       );
       return;
     }
-  }
-
-  useEffect(() => {
-    setResult();
+    // }
   }, [menuFilter, notes, filterType]);
 
   function checkIfRemainedSame() {
@@ -451,7 +450,9 @@ export default function Note() {
             aria-label="Clear"
             title="Clear"
             onClick={() => {
-              checkIfEmpty() ? null : setClearConfirmationModalToggle(true);
+              if (!checkIfEmpty()) {
+                setClearConfirmationModalToggle(true);
+              }
             }}
             size={"1.5rem"}
           />
@@ -497,7 +498,7 @@ export default function Note() {
                 className="cta inline ml-2"
                 aria-label="Remove Tag"
                 title="Remove Tag"
-                onClick={(e) => {
+                onClick={() => {
                   // setMainTagsList(mainTagsList.filter((t) => t != tag));
                   // ^ other notes might have same tag that should still remain
                   // noteDisplayed.tag = noteDisplayed.tag.filter((t) => t != tag);

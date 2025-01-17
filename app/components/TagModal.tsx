@@ -1,7 +1,7 @@
 "use client";
 import Modal from "./Modal";
 import { Dispatch, SetStateAction, useState } from "react";
-import { ToastContainer, toast, Bounce } from "react-toastify";
+import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 type TagModalType = {
@@ -73,16 +73,17 @@ export default function TagModal({
     }
   }
 
-  function checkAnyDiffTag() {
-    for (let i = 0; i < mainTagsList.length; i++) {
-      for (let j = 0; j < noteDisplayed.tag.length; j++) {
-        if (mainTagsList[i] != noteDisplayed.tag[j]) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
+  // function checkAnyDiffTag() {
+  //   for (let i = 0; i < mainTagsList.length; i++) {
+  //     for (let j = 0; j < noteDisplayed.tag.length; j++) {
+  //       if (mainTagsList[i] != noteDisplayed.tag[j]) {
+  //         return true;
+  //       }
+  //     }
+  //   }
+  //   return false;
+  // }
+
   return (
     <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>
       <div className="modal-title text-center text-xl py-1 font-bold">Tag</div>

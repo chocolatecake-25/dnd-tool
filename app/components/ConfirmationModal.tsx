@@ -1,7 +1,6 @@
 "use client";
 import Modal from "./Modal";
-import { Dispatch, SetStateAction, useState } from "react";
-import { ToastContainer, toast, Bounce } from "react-toastify";
+import { Dispatch, SetStateAction } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheck } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
