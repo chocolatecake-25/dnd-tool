@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // basePath: "/dnd-tool",
+  basePath: "/dnd-tool",
   output: "export",
 };
 
