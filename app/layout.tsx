@@ -31,7 +31,7 @@ export default function RootLayout({
         type="image/<generated>"
         sizes="<generated>"
       /> */}
-      <link rel="shortcut icon" href="/note.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="note.ico" type="image/x-icon" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
