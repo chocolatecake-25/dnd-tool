@@ -17,7 +17,7 @@ export default function Modal({
       {modalToggle && (
         // {modalToggle && toggle && (
         <div
-          className="modal-bg h-screen w-screen bg-black bg-opacity-50 fixed z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
+          className="modal-bg h-screen w-screen bg-black bg-opacity-50 fixed z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-ca"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setModalToggle(false);

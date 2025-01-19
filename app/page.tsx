@@ -528,7 +528,7 @@ export default function Note() {
       </div>
       {/* hidden menu */}
       <div
-        className="menu px-2 py-16 h-screen w-80 fixed right-0 top-0 bg-black bg-opacity-80 flex-ca flex-col gap-2 justify-start"
+        className="menu px-2 py-16 h-screen w-80 fixed right-0 top-0 bg-black bg-opacity-80 flex-ca flex-col gap-2 !justify-start"
         style={{
           display: menuToggle ? "flex" : "none",
           transition: "display 1s",
