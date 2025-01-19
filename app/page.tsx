@@ -137,9 +137,9 @@ export default function Note() {
     }
   }
 
-  useEffect(() => {
-    console.log(`mainList:${mainTagsList}`);
-  });
+  // useEffect(() => {
+  //   console.log(`mainList:${mainTagsList}`);
+  // });
 
   function setDisplayedNote(title: string) {
     for (let i = 0; i < notes.length; i++) {
@@ -317,7 +317,7 @@ export default function Note() {
     <div
       className="text-white h-screen pt-5 bg-black bg-opacity-50"
       style={{
-        backgroundImage: "url(/bg-fantasy.jpg)",
+        backgroundImage: "url(bg-fantasy.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundBlendMode: "multiply",
@@ -368,7 +368,7 @@ export default function Note() {
         setModalToggle={setIdeaModalToggle}
         mainTagsList={mainTagsList}
       />
-      <div className="top px-5 py-1 flex-ca justify-between">
+      <div className="top px-5 py-1 flex-ca !justify-between">
         <div>
           <input
             type="text"
@@ -532,7 +532,7 @@ export default function Note() {
         style={{
           display: menuToggle ? "flex" : "none",
           transition: "display 1s",
-          backgroundImage: "url(/reading-book.jpg)",
+          backgroundImage: "url(reading-book.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundBlendMode: "multiply",
